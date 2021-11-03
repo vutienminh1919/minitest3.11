@@ -23,7 +23,6 @@ VALUES ('HL', 2, 'Chuyen di toi Ha Long', '100USD', '2020-3-19', '2020-3-22'),
        ('HN', 2, 'Chuyen di toi Ha Noi', '100USD', '2020-9-19', '2020-9-22'),
        ('HN', 1, 'Chuyen di toi Ha Noi', '100USD', '2020-3-19', '2020-3-24');
 
-
 CREATE TABLE locations
 (
     id        int PRIMARY KEY AUTO_INCREMENT,
@@ -45,15 +44,16 @@ CREATE table customers
     year_of_birth  int,
     city_id        int
 );
-insert into customers (`name`, `id_card_number`, `year_of_birth`) VALUE ('Minh','123456789',1996),
-('Duc','123456788',1996),
-('Tuan Anh','123467778',1995),
-('Xuan Anh','123456999',1997),
-('Thanh','123456876',1966),
-('Nhu Anh','123456939',1965),
-('Khanh','123456373',1999),
-('Doc co cau bai','1234562928',1900),
-('Anh hung xa dieu','123456986',1900);
+insert into customers (`name`, `id_card_number`, `year_of_birth`, `city_id`)
+VALUES ('Minh', '123456789', 1996, 1),
+       ('Duc', '123456788', 1996, 2),
+       ('Tuan Anh', '123467778', 1995, 1),
+       ('Xuan Anh', '123456999', 1997, 3),
+       ('Thanh', '123456876', 1966, 2),
+       ('Nhu Anh', '123456939', 1965, 4),
+       ('Khanh', '123456373', 1999, 1),
+       ('Doc co cau bai', '1234562928', 1900, 2),
+       ('Anh hung xa dieu', '123456986', 1900, 2);
 
 CREATE table cities
 (
@@ -61,11 +61,11 @@ CREATE table cities
     name varchar(50)
 );
 insert into cities(`name`)
-        ('Hai Phong'),
-('Ha Noi'),
-('Nghe An'),
-('Hue'),
-('Khanh Hoa');
+values ('Hai Phong'),
+       ('Ha Noi'),
+       ('Nghe An'),
+       ('Hue'),
+       ('Khanh Hoa');
 create table tour_type
 (
     id        int primary key auto_increment,
@@ -84,16 +84,16 @@ create table order_invoice
     status      varchar(50)
 );
 insert into order_invoice (tour_id, customer_id, status)
-values ('HN', 1, 'da thanh toan 20%');
-values ('HP', 2, 'chua thanh toan');
-values ('HUE', 3, 'da thanh toan 10%');
-values ('SS', 4, 'da thanh toan 50%');
-values ('CL', 5, 'da thanh toan 100%');
-values ('NT', 6, 'da thanh toan');
-values ('DS', 7, 'chua thanh toan');
-values ('HN', 8, 'da thanh toan 100%');
-values ('HN', 9, 'chua thanh toan');
-values ('HP', 10, 'da thanh toan 100%');
+values (1, 1, 'da thanh toan 20%'),
+       (3, 2, 'chua thanh toan'),
+       (2, 3, 'da thanh toan 10%'),
+       (5, 4, 'da thanh toan 50%'),
+       (1, 5, 'da thanh toan 100%'),
+       (6, 6, 'da thanh toan'),
+       (3, 7, 'chua thanh toan'),
+       (5, 8, 'da thanh toan 100%'),
+       (1, 9, 'chua thanh toan'),
+       (2, 10, 'da thanh toan 100%');
 
 select count(name)
 from `tours`
